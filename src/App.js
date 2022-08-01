@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="app">
       {/* <SimpleInput /> */}
-      {/* <Input /> */}
-      <BasicForm />
+      <Input />
+      {/* <BasicForm /> */}
     </div>
   );
 }
