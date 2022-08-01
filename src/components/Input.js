@@ -1,20 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import classes from './Input.module.css'
+import useInput from '../hooks/use-input'
 
 
 
 const Input = () => {
 
-    const [enteredName, setEnteredName] = useState('')
-    const [enteredNameIsTouched, setEnteredNameIsTouched] = useState(false)
-    const [email, setEmail] = useState('')
-    const [emailTouch, setEamilTouched] = useState(false)
+
+    const {
+        value: enteredName,
+        valueIsValid: isEnteredNameValid,
+        hasError: isNameInvalid,
+        onBlurHandler: nameBlurHandler,
+        valueChangeHandler: inputNameHandler
+    } = useInput(value => value.trim() !== '')
+
+    const {
+        value: email,
+        valueIsValid: isEmailValid,
+        hasError: isEmailInvalid,
+        onBlurHandler: emailBlurHandler,
+        valueChangeHandler: inputEmailHandler
+    } = useInput(value => value.includes('@'))
 
 
-    const isEnteredNameValid = enteredName.trim() !== ''
-    const isNameInvalid = !isEnteredNameValid && enteredNameIsTouched
-    const isEmailInvalid = !email.includes('@') && emailTouch
-    const isEmailValid = email.includes('@')
 
     let formIsValid = false;
     if (isEnteredNameValid && isEmailValid) {
@@ -22,32 +31,19 @@ const Input = () => {
     }
 
 
-    const nameBlurHandler = () => {
-        setEnteredNameIsTouched(true)
-    }
 
-    const emailBlurHandler = () => {
-        setEamilTouched(true)
-    }
-    const inputNameHandler = event => {
-        setEnteredName(event.target.value)
-    }
-
-    const inputEmailHandler = event => {
-        setEmail(event.target.value)
-    }
 
     const onSubmitHandler = event => {
         event.preventDefault()
 
-        if (enteredName.trim().length === 0 || !email.includes('@')) {
+        if (enteredName.trim().length === 0 && !email.includes('@')) {
             return
         }
         console.log(enteredName, email)
-        setEnteredName('')
-        setEmail('')
-        setEnteredNameIsTouched(false)
-        setEamilTouched(false)
+        //  setEnteredName('')
+        //  setEmail('')
+        //  setEnteredNameIsTouched(false)
+        // setEamilTouched(false)
     }
 
 
