@@ -1,0 +1,41 @@
+.formControl {
+    margin-bottom: 1rem;
+}
+
+.formControl input,
+.formControl label {
+    display: block;
+
+}
+
+
+.formControl input {
+    width: 400px;
+    padding: 10px;
+    font-size: 18px;
+
+    border-color: black;
+    outline: none;
+}
+
+.formControl input:focus {
+    background-color: rgba(144, 238, 144, 0.212);
+    border: 2px solid green !important;
+    outline: none;
+}
+
+.invalid input {
+    background-color: rgba(238, 144, 152, 0.212);
+    border: 2px solid orangered !important;
+    outline: none;
+}
+
+.invalid input:focus {
+    background-color: rgba(238, 144, 152, 0.212);
+    border: 2px solid orangered !important;
+    outline: none;
+}
+
+.error-text {
+    color: orangered;
+}
