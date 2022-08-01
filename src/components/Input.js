@@ -13,7 +13,7 @@ const Input = () => {
         hasError: isNameInvalid,
         onBlurHandler: nameBlurHandler,
         valueChangeHandler: inputNameHandler
-    } = useInput(value => value.trim() !== '')
+    } = useInput(value => value.trim().length > 0)
 
     const {
         value: email,
