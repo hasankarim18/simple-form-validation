@@ -7,8 +7,7 @@ const initialState = {
 
 const inputReducer = (state, action) => {
     if (action.type === 'INPUT') {
-        console.log(action)
-        // return state
+
         return {
             ...state,
             value: action.payload,
@@ -50,7 +49,7 @@ const useInput = (validateValue) => {
         })
     }
 
-    console.log(inputState)
+
     return (
         {
             value: inputState.value, hasError: hasError, valueChangeHandler, onBlurHandler, valueIsValid
